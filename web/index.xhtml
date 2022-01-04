@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:panelGrid columns="2">
+                <h:outputText value="Nombre: "></h:outputText>
+                <h:inputText value="#{pacienteController.paciente.nombre}"></h:inputText>
+                <h:outputText value="Apellido: "></h:outputText>
+                <h:inputText value="#{pacienteController.paciente.apellido}"></h:inputText>
+                <h:outputText value="Identificacion: "></h:outputText>
+                <h:inputText value="#{pacienteController.paciente.identificacion}"></h:inputText>
+                <h:outputText value="Sexo: "></h:outputText>
+                <h:inputText value="#{pacienteController.paciente.sexo}"></h:inputText>
+                
+            </p:panelGrid>
+            
+            <h:commandButton value="Registrar" action="#{pacienteController.registrar()}"></h:commandButton>
+            <p:growl></p:growl>
+            
+            <p:dataTable var="pac" value="#{pacienteController.pacientes}">
+                <p:column headerText="Identificacion">
+                    <h:outputText value="#{pac.identificacion}" />
+                </p:column>
+
+                <p:column headerText="Nombre">
+                    <h:outputText value="#{pac.nombre}" />
+                </p:column>
+
+                <p:column headerText="Apellido">
+                    <h:outputText value="#{pac.apellido}" />
+                </p:column>
+
+                <p:column headerText="Sexo">
+                    <h:outputText value="#{pac.sexo}" />
+                </p:column>
+        </p:dataTable>
+            
+        </h:form>
+    </h:body>
+</html>
+
